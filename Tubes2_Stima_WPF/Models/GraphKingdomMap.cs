@@ -1,6 +1,6 @@
 using QuickGraph;
 
-namespace Tubes2_Stima_Console.Models
+namespace Tubes2_Stima_WPF.Models
 {
     /// <summary>
     /// This is our custom data graph derived from BidirectionalGraph class using custom data types.

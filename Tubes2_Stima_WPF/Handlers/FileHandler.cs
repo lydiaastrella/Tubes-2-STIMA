@@ -4,9 +4,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Tubes2_Stima_Console.Models;
+using Tubes2_Stima_WPF.Models;
 
-namespace Tubes2_Stima_Console.Handlers
+namespace Tubes2_Stima_WPF.Handlers
 {
     class FileHandler
     {
