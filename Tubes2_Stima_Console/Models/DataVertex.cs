@@ -16,6 +16,7 @@ namespace Tubes2_Stima_Console.Models
         /// Some string property for example purposes
         /// </summary>
         public int NomorRumah { get; set; }
+        public int Level { get; set; }
 
         /// <summary>
         /// Default parameterless constructor for this class
@@ -28,6 +29,7 @@ namespace Tubes2_Stima_Console.Models
         public DataVertex(int _NomorRumah = 0)
         {
             this.NomorRumah = _NomorRumah;
+            this.Level = 0;
         }
         
         public int ToInt()
