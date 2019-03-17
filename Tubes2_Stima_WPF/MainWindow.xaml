@@ -4,8 +4,21 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Tubes2_Stima_WPF"
+        xmlns:controls="http://schemas.panthernet.ru/graphx/"
+        xmlns:models="clr-namespace:Tubes2_Stima_WPF.Models"
         mc:Ignorable="d"
         Title="MainWindow" Height="600" Width="800">
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="82*"/>
+            <ColumnDefinition Width="151*"/>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- Here we create our GraphArea layout container wrapped into the Zoombox for vast zooming capabilities.
+             This is the standard approach for GraphX.-->
+        <controls:ZoomControl x:Name="zoomctrl" Grid.ColumnSpan="2">
+            <models:GraphKingdomArea x:Name="Area"/>
+        </controls:ZoomControl>
     </Grid>
 </Window>
