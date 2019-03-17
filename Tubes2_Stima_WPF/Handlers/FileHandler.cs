@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Tubes2_Stima_WPF.Models;
+using Tubes2_Stima_WPF.Algorithms;
 
 namespace Tubes2_Stima_WPF.Handlers
 {
@@ -76,6 +77,39 @@ namespace Tubes2_Stima_WPF.Handlers
                 this.Map.AddVerticesAndEdge(newEdge);
                 newEdge = new DataEdge(vlist[destination], vlist[source]);
                 this.Map.AddVerticesAndEdge(newEdge);
+            }
+        }
+    }
+
+    class QueryHandler : ReadFileHandler
+    {
+        public int Query_Count { get; set; }
+
+        // Mode, Target, Start
+        public List<Tuple<int, int, int>> Queries { get; set; }
+
+        public QueryHandler(string path) : base(path)
+        {
+            Queries = new List<Tuple<int, int, int>>();
+        }
+
+        public void Parse()
+        {
+            this.ReadFromFile();
+
+            this.Query_Count = int.Parse(this.ResultString[0]);
+
+            for (int i=1; i <= this.Query_Count; i++)
+            {
+                string[] temp = this.ResultString[i].Split();
+
+                int Mode = int.Parse(temp[0]);
+
+                int Target = int.Parse(temp[1]);
+
+                int Start = int.Parse(temp[2]);
+
+                Queries.Add(new Tuple<int, int, int>(Mode, Target, Start));
             }
         }
     }

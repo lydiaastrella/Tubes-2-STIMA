@@ -30,11 +30,19 @@ namespace Tubes2_Stima_WPF
         {
             InitializeComponent();
 
-            MapReader Peta = new MapReader("input.txt");
+            Console.Write("Masukkan nama file peta: ");
+            string mapName = Console.ReadLine();
 
+            MapReader Peta = new MapReader(mapName);
             Peta.Parse();
 
-            Find_Solution(Peta);
+
+            Console.Write("Masukkan nama file query: ");
+            string queryName = Console.ReadLine();
+
+            QueryHandler Queries = new QueryHandler(queryName);
+            Queries.Parse();
+            
 
             //Customize Zoombox a bit
             //Set minimap (overview) window to be visible by default
@@ -47,18 +55,24 @@ namespace Tubes2_Stima_WPF
             GraphKingdomArea_Setup(Peta.Map);
 
             ShowGraph();
-        }
 
-        static void Find_Solution(MapReader Peta)
-        {
+
             // memberi level pada semua rumah
             List<int> path = new List<int>();
             DFS_Graph.TentukanLevel(1, 0, path, Peta.Map);
 
+            foreach(var Query in Queries.Queries)
+            {
+                Console.WriteLine(Query);
+                Find_Solution_DFS(Peta, Query.Item1, Query.Item2, Query.Item3);
+            }
+        }
+
+
+
+        static void Find_Solution_DFS(MapReader Peta, int DekatJauh, int TempatJose, int TempatFerdiant)
+        {
             // DFS
-            int DekatJauh = 0;
-            int TempatJose = 1;
-            int TempatFerdiant = 6;
             List<int> route = new List<int>();
             bool Jawaban;
 
