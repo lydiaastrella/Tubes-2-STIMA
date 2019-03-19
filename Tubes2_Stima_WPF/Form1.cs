@@ -101,6 +101,5 @@ namespace Tubes2_Stima_WPF
 
             }
         }
-
     }
 }
