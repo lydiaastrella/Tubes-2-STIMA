@@ -84,18 +84,18 @@ namespace Tubes2_Stima_WPF
                 richTextBoxAnswer.Text = "TIDAK";
             }
             
-            // print rute jawaban yang benar jika ada
+            // print rute DFS
             foreach (int member in route)
             {
-                richTextBoxPath.Text += " -> " + member.ToString();
+                richTextBoxDFS.Text += " -> " + member.ToString();
             }
 
-            // print rute DFS
+            // print rute jawaban yang benar jika ada
             if (Jawaban)
             {
                 foreach (int member in trimmedRoute)
                 {
-                    richTextBoxDFS.Text += " -> " + member.ToString();
+                    richTextBoxPath.Text += " -> " + member.ToString();
                 }
 
             }
